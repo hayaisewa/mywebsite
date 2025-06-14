@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAYAI SEWA | Home (早いせわ)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #0a192f;
+            --secondary: #172a45;
+            --accent: #64ffda;
+            --text: #ccd6f6;
+            --text-secondary: #8892b0;
+            --white: #e6f1ff;
+            --transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans JP', sans-serif;
+            background-color: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        p {
+            color: var(--text-secondary);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background-color: rgba(10, 25, 47, 0.85);
+            height: 80px;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-icon {
+            font-size: 0.9rem;
+            color: var(--white);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            color: var(--text);
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        .nav-number {
+            color: var(--accent);
+            margin-right: 0.3rem;
+        }
+
+        .language-toggle {
+            margin-left: 2rem;
+        }
+
+        .lang-btn {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.8rem;
+            transition: var(--transition);
+        }
+
+        .lang-btn:hover {
+            background: rgba(100, 255, 218, 0.1);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+      .hero {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+    opacity: 0.15;
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 25, 47, 0.85);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            max-width: 600px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-number {
+            color: var(--accent);
+            font-family: 'SF Mono', monospace;
+            font-size: 1.2rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            max-width: 800px;
+        }
+
+        .about-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--text-secondary);
+        }
+
+        .about-label {
+            color: var(--accent);
+            font-family: 'SF Mono', monospace;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: var(--secondary);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .service-title {
+            font-size: 1.2rem;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .partner-card {
+            background: var(--secondary);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .partner-name {
+            font-size: 1.1rem;
+            color: var(--white);
+        }
+
+        .partner-location {
+            font-size: 0.9rem;
+        }
+
+        .contact-grid {
+            max-width: 600px;
+            margin: 2rem auto;
+            text-align: center;
+        }
+
+        .contact-item {
+            margin: 1rem 0;
+            font-size: 1.1rem;
+        }
+
+        .contact-link {
+            color: var(--accent);
+            font-family: 'SF Mono', monospace;
+        }
+
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+            background: var(--secondary);
+        }
+
+        .footer-text {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .chatbot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .chatbot-toggle {
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: var(--transition);
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .chatbot-window {
+            display: none;
+            width: 300px;
+            height: 400px;
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            overflow: hidden;
+            flex-direction: column;
+        }
+
+        .chatbot-header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 1rem;
+            font-size: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            background: #f9f9f9;
+        }
+
+        .chatbot-message {
+            margin-bottom: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            max-width: 80%;
+        }
+
+        .chatbot-message.user {
+            background: var(--accent);
+            color: var(--primary);
+            margin-left: auto;
+        }
+
+        .chatbot-message.bot {
+            background: var(--secondary);
+            color: var(--white);
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 0.5rem;
+            background: #fff;
+        }
+
+        .chatbot-input-field {
+            flex: 1;
+            border: 1px solid var(--text-secondary);
+            border-radius: 4px;
+            padding: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .chatbot-send {
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+            cursor: pointer;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            header {
+                height: 60px;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                padding: 1rem;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                text-align: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .chatbot-window {
+                width: 100%;
+                max-width: 280px;
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <span>HAYAI SEWA</span>
+                <span class="logo-icon" data-en="Connecting Nepal and Japan through Support and Services" data-jp="ネパールと日本をサポートとサービスでつなぐ">Connecting Nepal and Japan through Support and Services</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#about"><span class="nav-number">01.</span> <span data-en="About Us" data-jp="会社概要">About Us</span></a></li>
+                    <li><a href="#services"><span class="nav-number">02.</span> <span data-en="Services" data-jp="サービス">Services</span></a></li>
+                    <li><a href="#partners"><span class="nav-number">03.</span> <span data-en="Partners" data-jp="パートナー">Partners</span></a></li>
+                    <li><a href="#contact"><span class="nav-number">04.</span> <span data-en="Contact" data-jp="お問い合わせ">Contact</span></a></li>
+                </ul>
+            </nav>
+            <div class="language-toggle">
+                <button class="lang-btn" id="langToggle">🇯🇵 日本語</button>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1 class="hero-title" data-en="Welcome to HAYAI SEWA" data-jp="HAYAI SEWAへようこそ">Welcome to HAYAI SEWA</h1>
+                <p class="hero-description" data-en="Bridging Nepal and Japan with comprehensive support and innovative services." data-jp="ネパールと日本を包括的なサポートと革新的なサービスでつなぎます。">
+                    Bridging Nepal and Japan with comprehensive support and innovative services.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-number">01.</span>
+                <h2 class="section-title" data-en="About Us" data-jp="会社概要">About Us</h2>
+            </div>
+            <div class="about-grid fade-in delay-1">
+                <div class="about-item">
+                    <span class="about-label" data-en="Company Name:" data-jp="会社名：">Company Name:</span>
+                    <span data-en="HAYAI SEWA Co., Ltd." data-jp="株式会社HAYAI SEWA（早いせわ）">HAYAI SEWA Co., Ltd.</span>
+                </div>
+                <div class="about-item">
+                    <span class="about-label" data-en="Representative:" data-jp="代表者：">Representative:</span>
+                    <span data-en="Bishnu Nyaupane" data-jp="ネウパネ・ビスヌ">Bishnu Nyaupane</span>
+                </div>
+                <div class="about-item">
+                    <span class="about-label" data-en="Address:" data-jp="住所：">Address:</span>
+                    <span data-en="1691 Horishita-cho, Isesaki, Gunma 379-2212, Japan" data-jp="群馬県伊勢崎市堀下町1691、〒379-2212">1691 Horishita-cho, Isesaki, Gunma 379-2212, Japan</span>
+                </div>
+                <div class="about-item">
+                    <span class="about-label" data-en="Capital:" data-jp="資本金：">Capital:</span>
+                    <span data-en="¥5,000,000" data-jp="500万円">¥5,000,000</span>
+                </div>
+                <div class="about-item">
+                    <span class="about-label" data-en="Website:" data-jp="ウェブサイト：">Website:</span>
+                    <span data-en="hayaisewa.com" data-jp="hayaisewa.com">hayaisewa.com</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-number">02.</span>
+                <h2 class="section-title" data-en="Our Services" data-jp="私たちのサービス">Our Services</h2>
+            </div>
+            <div class="services-grid fade-in delay-1">
+                <div class="service-card">
+                    <i class="fas fa-passport service-icon"></i>
+                    <h3 class="service-title" data-en="Visa Acquisition Support" data-jp="ビザ取得サポート">Visa Acquisition Support</h3>
+                    <p data-en="Assisting with visa applications for seamless relocation to Japan." data-jp="日本へのスムーズな移住のためのビザ申請支援。">
+                        Assisting with visa applications for seamless relocation to Japan.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-graduation-cap service-icon"></i>
+                    <h3 class="service-title" data-en="Technical Intern & Student Support" data-jp="技能実習生・留学生支援">Technical Intern & Student Support</h3>
+                    <p data-en="Guidance for interns and students navigating life in Japan." data-jp="日本での生活をナビゲートする実習生・留学生向けガイダンス。">
+                        Guidance for interns and students navigating life in Japan.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-language service-icon"></i>
+                    <h3 class="service-title" data-en="Translation & Interpretation" data-jp="翻訳・通訳サービス">Translation & Interpretation</h3>
+                    <p data-en="Professional language services for clear communication." data-jp="明確なコミュニケーションのためのプロの言語サービス。">
+                        Professional language services for clear communication.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-briefcase service-icon"></i>
+                    <h3 class="service-title" data-en="Job Matching & Career Counseling" data-jp="就職支援・キャリア相談">Job Matching & Career Counseling</h3>
+                    <p data-en="Connecting talent with opportunities in Japan." data-jp="日本の機会と才能をつなぐ。">
+                        Connecting talent with opportunities in Japan.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-home service-icon"></i>
+                    <h3 class="service-title" data-en="Apartment & Lifestyle Support" data-jp="住宅紹介・生活サポート">Apartment & Lifestyle Support</h3>
+                    <p data-en="Helping you settle with housing and daily needs." data-jp="住宅や日常のニーズで定着をサポート。">
+                        Helping you settle with housing and daily needs.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-camera service-icon"></i>
+                    <h3 class="service-title" data-en="Security Camera Wholesale & Retail" data-jp="防犯カメラの卸売・販売">Security Camera Wholesale & Retail</h3>
+                    <p data-en="Providing top-quality security solutions." data-jp="最高品質のセキュリティソリューションの提供。">
+                        Providing top-quality security solutions.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-recycle service-icon"></i>
+                    <h3 class="service-title" data-en="Secondhand Goods & Halal Shop" data-jp="リサイクル・ハラールショップ">Secondhand Goods & Halal Shop</h3>
+                    <p data-en="Sustainable shopping with Halal-certified products." data-jp="ハラル認証製品による持続可能なショッピング。">
+                        Sustainable shopping with Halal-certified products.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-users service-icon"></i>
+                    <h3 class="service-title" data-en="Events & Japanese Culture Learning" data-jp="日本文化の学習イベント開催">Events & Japanese Culture Learning</h3>
+                    <p data-en="Cultural events to embrace Japanese traditions." data-jp="日本の伝統を受け入れる文化イベント。">
+                        Cultural events to embrace Japanese traditions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="partners" class="partners">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-number">03.</span>
+                <h2 class="section-title" data-en="Our Partners" data-jp="私たちのパートナー">Our Partners</h2>
+            </div>
+            <div class="partners-grid fade-in delay-1">
+                <div class="partner-card">
+                    <h3 class="partner-name" data-en="HI HI CONSULTANT PVT. LTD." data-jp="HI HI CONSULTANT PVT. LTD.">HI HI CONSULTANT PVT. LTD.</h3>
+                    <p class="partner-location" data-en="Kathmandu, Nepal" data-jp="ネパール・カトマンズ">Kathmandu, Nepal</p>
+                </div>
+                <div class="partner-card">
+                    <h3 class="partner-name" data-en="Nyaupane Techno Suppliers" data-jp="ニャウパネテクノサプライヤーズ">Nyaupane Techno Suppliers</h3>
+                    <p class="partner-location" data-en="Kathmandu, Nepal" data-jp="ネパール・カトマンズ">Kathmandu, Nepal</p>
+                </div>
+                <div class="partner-card">
+                    <h3 class="partner-name" data-en="Ichii House Co., Ltd." data-jp="一井ハウス株式会社">Ichii House Co., Ltd.</h3>
+                    <p class="partner-location" data-en="Gunma, Japan" data-jp="群馬県">Gunma, Japan</p>
+                </div>
+                <div class="partner-card">
+                    <h3 class="partner-name" data-en="Oshiro Immigration Office" data-jp="おしろ行政書士事務所">Oshiro Immigration Office</h3>
+                    <p class="partner-location" data-en="Takasaki, Gunma" data-jp="群馬県高崎市">Takasaki, Gunma</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-number">04.</span>
+                <h2 class="section-title" data-en="Contact Us" data-jp="お問い合わせ">Contact Us</h2>
+            </div>
+            <div class="contact-grid fade-in delay-1">
+                <div class="contact-item">
+                    <span class="about-label" data-en="Phone:" data-jp="電話：">Phone:</span>
+                    <a href="tel:0270754696" class="contact-link">0270-75-4696</a>
+                </div>
+                <div class="contact-item">
+                    <span class="about-label" data-en="Fax:" data-jp="ファックス：">Fax:</span>
+                    <span>0273-29-7230</span>
+                </div>
+                <div class="contact-item">
+                    <span class="about-label" data-en="Email:" data-jp="メール：">Email:</span>
+                    <a href="mailto:hayaisewa1@gmail.com" class="contact-link">hayaisewa1@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p class="footer-text" data-en="© 2025 HAYAI SEWA Co., Ltd. All rights reserved." data-jp="© 2025 株式会社HAYAI SEWA。全著作権所有。">
+                © 2025 HAYAI SEWA Co., Ltd. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <div class="chatbot">
+        <button class="chatbot-toggle" id="chatbotToggle">
+            <i class="fas fa-comment"></i>
+        </button>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <span data-en="HAYAI SEWA Assistant" data-jp="HAYAI SEWAアシスタント">HAYAI SEWA Assistant</span>
+                <button class="chatbot-close" id="chatbotClose">×</button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="chatbot-message bot" data-en="Hello! How can I assist you today?" data-jp="こんにちは！今日、どのようにお手伝いしましょうか？">
+                    Hello! How can I assist you today?
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" class="chatbot-input-field" id="chatbotInput" placeholder="Type your message...">
+                <button class="chatbot-send" id="chatbotSend">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = 'en';
+        const toggleBtn = document.getElementById('langToggle');
+        const chatbotMessages = document.getElementById('chatbotMessages');
+        const chatbotInput = document.getElementById('chatbotInput');
+        const chatbotSend = document.getElementById('chatbotSend');
+        const chatbotToggle = document.getElementById('chatbotToggle');
+        const chatbotWindow = document.getElementById('chatbotWindow');
+        const chatbotClose = document.getElementById('chatbotClose');
+
+        toggleBtn.addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'jp' : 'en';
+            toggleBtn.innerHTML = currentLang === 'en' ? '🇯🇵 日本語' : '🇬🇧 English';
+            updateLanguage();
+        });
+
+        function updateLanguage() {
+            document.querySelectorAll('[data-en], [data-jp]').forEach(element => {
+                element.textContent = element.getAttribute(`data-${currentLang}`);
+            });
+        }
+
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const nav = document.querySelector('nav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = nav.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    nav.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            header.style.backgroundColor = window.scrollY > 50 ? 'rgba(10, 25, 47, 0.95)' : 'rgba(10, 25, 47, 0.85)';
+        });
+
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(element => {
+            element.style.opacity = 0;
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(element);
+        });
+
+        chatbotToggle.addEventListener('click', () => {
+            chatbotWindow.style.display = 'flex';
+        });
+
+        chatbotClose.addEventListener('click', () => {
+            chatbotWindow.style.display = 'none';
+        });
+
+        function addMessage(text, isUser = false) {
+            const message = document.createElement('div');
+            message.className = `chatbot-message ${isUser ? 'user' : 'bot'}`;
+            message.textContent = text;
+            chatbotMessages.appendChild(message);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        chatbotSend.addEventListener('click', handleChatbotInput);
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleChatbotInput();
+        });
+
+        function handleChatbotInput() {
+            const input = chatbotInput.value.trim().toLowerCase();
+            if (!input) return;
+
+            addMessage(input, true);
+            chatbotInput.value = '';
+
+            let response = currentLang === 'en' ? 'Sorry, I didn’t understand. Try asking about visas, jobs, or contact info!' : 'すみません、理解できませんでした。ビザ、仕事、または連絡先について質問してみてください！';
+
+            if (input.includes('visa')) {
+                response = currentLang === 'en' ? 'We offer visa acquisition support to help you relocate to Japan. Contact us at hayaisewa1@gmail.com for details!' : '日本への移住をサポートするビザ取得支援を提供しています。詳細はhayaisewa1@gmail.comまでご連絡ください！';
+            } else if (input.includes('job') || input.includes('work')) {
+                response = currentLang === 'en' ? 'Our job matching and career counseling services connect you with opportunities in Japan. Reach out to learn more!' : '就職支援とキャリア相談サービスで日本の機会とつなぎます。詳細はお問い合わせください！';
+            } else if (input.includes('contact')) {
+                response = currentLang === 'en' ? 'You can reach us at: Phone: 0270-75-4696, Email: hayaisewa1@gmail.com' : 'ご連絡先：電話：0270-75-4696、メール：hayaisewa1@gmail.com';
+            }
+
+            setTimeout(() => addMessage(response), 500);
+        }
+
+        updateLanguage();
+    </script>
+</body>
+</html>
